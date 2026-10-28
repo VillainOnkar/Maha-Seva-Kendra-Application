@@ -1,0 +1,34 @@
+{
+  "aadhaar": "https://uidai.gov.in/",
+  "pan": "https://www.incometax.gov.in/iec/foportal/",
+  "voter": "https://voters.eci.gov.in/",
+  "passport": "https://www.passportindia.gov.in/",
+  "income": "https://aaplesarkar.mahaonline.gov.in/",
+  
+  "caste": "https://aaplesarkar.mahaonline.gov.in/",
+  "domicile": "https://aaplesarkar.mahaonline.gov.in/",
+  "non_creamy": "https://aaplesarkar.mahaonline.gov.in/",
+  "aaplesarkar": "https://aaplesarkar.mahaonline.gov.in/",
+  "mahadbt": "https://mahadbt.maharashtra.gov.in/",
+  
+  "mahaonline": "https://www.mahaonline.gov.in/",
+  "birth": "https://crsorgi.gov.in/",
+  "death": "https://crsorgi.gov.in/",
+  "ration": "https://nfsa.gov.in/",
+  "driving": "https://parivahan.gov.in/",
+  
+  "vehicle": "https://parivahan.gov.in/",
+  "pmkisan": "https://pmkisan.gov.in/",
+  "eshram": "https://eshram.gov.in/",
+  "ayushman": "https://pmjay.gov.in/",
+  "udyam": "https://udyamregistration.gov.in/",
+  
+  "gst": "https://www.gst.gov.in/",
+  "epfo": "https://unifiedportal-mem.epfindia.gov.in/memberinterface/",
+  "electricity": "https://wss.mahadiscom.in/",
+  "gas": "https://www.mylpg.in/",
+  "water": "https://www.india.gov.in/topics/water-resources",
+  
+  "police": "https://pcs.maharashtra.gov.in/",
+  "ecourts": "https://ecourts.gov.in/"
+}

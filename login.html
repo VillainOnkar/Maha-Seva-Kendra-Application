@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maha Seva Kendra – Secure Login</title>
+<link rel="stylesheet" href="login.css">
+
+<style>
+/* 🔴 Stylish Error Box */
+.error-box{
+  display:none;
+  margin-top:15px;
+  padding:10px;
+  border-radius:8px;
+  background:rgba(255,0,0,0.15);
+  border:1px solid rgba(255,0,0,0.5);
+  color:#ffb3b3;
+  font-size:14px;
+  text-align:center;
+  box-shadow:0 0 12px rgba(255,0,0,0.6);
+  animation: shake 0.35s ease;
+}
+
+/* shake animation */
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  50%{transform:translateX(6px)}
+  75%{transform:translateX(-4px)}
+  100%{transform:translateX(0)}
+}
+</style>
+
+</head>
+<body>
+
+<!-- background glow -->
+<div class="bg-glow"></div>
+
+<div class="login-box">
+  <div class="logo"><img src="icons/logo.jpeg"></div>
+
+  <h2>Maha Seva Kendra</h2>
+  <p>Secure Digital Services Portal</p>
+
+  <div class="input-box">
+    <input type="text" id="user" required>
+    <label>OperatorID</label>
+  </div>
+
+  <div class="input-box">
+    <input type="password" id="pass" required>
+    <label>Password</label>
+  </div>
+
+  <button onclick="login()">LOGIN</button>
+
+  <!-- 🔴 error message (NO popup) -->
+  <div class="error-box" id="error-msg">
+    ❌ Invalid Username or Password
+  </div>
+
+  <div class="note">Authorized Users Only</div>
+</div>
+
+<script>
+function login(){
+  const u = document.getElementById("user").value;
+  const p = document.getElementById("pass").value;
+  const err = document.getElementById("error-msg");
+
+  if (window.pywebview && window.pywebview.api) {
+    window.pywebview.api.login(u, p).then(success => {
+      if (!success) {
+        err.style.display = "block";
+        err.style.animation = "none";
+        err.offsetHeight; // reset animation
+        err.style.animation = "shake 0.35s ease";
+
+        setTimeout(() => {
+          err.style.display = "none";
+        }, 3000);
+      }
+    });
+  }
+}
+
+
+// 🔒 login page par back button hide
+const hideBack = setInterval(() => {
+  const btn = document.getElementById("msk-back");
+  if (btn) {
+    btn.remove();
+    clearInterval(hideBack);
+  }
+}, 100);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <title>Maha Seva Kendra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- background glow -->
+<div class="bg-glow"></div>
+
+<div class="dashboard-header">
+  <div class="logo"> <img src="icons/logo.jpeg"></div>
+
+  <h2>Maha Seva Kendra</h2>
+  <p>Digital Citizen Services Dashboard</p>
+  <button class="logout-btn" onclick="window.pywebview.api.go_login()">
+    🔐 Logout
+  </button>
+
+  
+
+</div>
+
+
+
+<div class="grid">
+
+    <div class="card" data-key="aadhaar"><img src="icons/aadhaar.png"><span>Aadhaar</span></div>
+    <div class="card" data-key="pan"><img src="icons/pan.png"><span>PAN Card</span></div>
+    <div class="card" data-key="voter"><img src="icons/voter.png"><span>Voter ID</span></div>
+    <div class="card" data-key="passport"><img src="icons/passport.png"><span>Passport</span></div>
+
+    <div class="card" data-key="income"><img src="icons/income.png"><span>Income Certificate</span></div>
+    <div class="card" data-key="caste"><img src="icons/caste.png"><span>Caste Certificate</span></div>
+    <div class="card" data-key="domicile"><img src="icons/domicile.png"><span>Domicile</span></div>
+    <div class="card" data-key="noncreamy"><img src="icons/cert.png"><span>Non-Creamy Layer</span></div>
+
+    <div class="card" data-key="aaplesarkar"><img src="icons/aaplesarkar.png"><span>Aaple Sarkar</span></div>
+    <div class="card" data-key="mahadbt"><img src="icons/mahadbt.png"><span>MahaDBT</span></div>
+    <div class="card" data-key="mahaonline"><img src="icons/mahaonline.png"><span>MahaOnline</span></div>
+
+    <div class="card" data-key="birth"><img src="icons/birth.png"><span>Birth Certificate</span></div>
+    <div class="card" data-key="death"><img src="icons/death.png"><span>Death Certificate</span></div>
+    <div class="card" data-key="ration"><img src="icons/ration.png"><span>Ration Card</span></div>
+
+    <div class="card" data-key="driving"><img src="icons/driving.png"><span>Driving License</span></div>
+    <div class="card" data-key="vehicle"><img src="icons/vehicle.png"><span>Vehicle Services</span></div>
+
+    <div class="card" data-key="pmkisan"><img src="icons/farmer.png"><span>PM Kisan</span></div>
+    <div class="card" data-key="eshram"><img src="icons/eshram.png"><span>e-Shram Card</span></div>
+    <div class="card" data-key="ayushman"><img src="icons/ayushman.png"><span>Ayushman Bharat</span></div>
+
+    <div class="card" data-key="udyam"><img src="icons/udyam.png"><span>Udyam Registration</span></div>
+    <div class="card" data-key="gst"><img src="icons/gst.png"><span>GST Portal</span></div>
+    <div class="card" data-key="epfo"><img src="icons/epfo.png"><span>EPFO / PF</span></div>
+
+    <div class="card" data-key="electricity"><img src="icons/electricity.png"><span>Electricity Bill</span></div>
+    <div class="card" data-key="gas"><img src="icons/gas.png"><span>Gas Booking</span></div>
+    <div class="card" data-key="water"><img src="icons/water.png"><span>Water Bill</span></div>
+
+    <div class="card" data-key="police"><img src="icons/police.png"><span>Police Clearance</span></div>
+    <div class="card" data-key="court"><img src="icons/court.png"><span>e-Courts</span></div>
+
+</div>
+
+<script src="script.js">
+  function logout(){
+  window.pywebview.api.logout();
+}
+</script>
+<!-- 🔴 Top Link Error Bar -->
+<div id="link-error" class="link-error-top">
+  ⚠️ Service link currently not available
+</div>
+
+</body>
+</html>

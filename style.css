@@ -1,0 +1,318 @@
+body{
+  margin:0;
+  background:radial-gradient(circle at top, #0f172a, #020617);
+  font-family:Segoe UI, system-ui;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+.top{
+  text-align:center;
+  padding:22px;
+  font-size:30px;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#020617,#020617,#020617);
+  box-shadow:0 10px 30px rgba(0,0,0,.7);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  /* CHANGE: Ek line mein 3 cards fix karne ke liye */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 22px;
+  padding: 35px;
+}
+
+/* ================= CARD ================= */
+.card{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  
+  /* CHANGE: Card ko lamba aur horizontal dikhane ke liye padding adjust ki */
+  padding: 15px 30px; 
+  height: 65px; 
+
+  border-radius:22px;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.05)
+  );
+  backdrop-filter:blur(14px);
+  cursor:pointer;
+  overflow:hidden;
+  box-shadow:
+    0 0 0 rgba(0,255,255,0),
+    inset 0 0 0 rgba(255,255,255,0);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+  animation:float 4s ease-in-out infinite;
+}
+/* ================= GLOW BORDER ================= */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  padding:2px;
+  background:linear-gradient(120deg, transparent, cyan, transparent);
+
+  /* Safari / Chrome */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  /* Standard (Firefox etc.) */
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  opacity:.35;
+  transition:.35s;
+}
+
+
+/* ================= SHINE EFFECT ================= */
+.card::after{
+  content:"";
+  position:absolute;
+  width:140%;
+  height:140%;
+  top:-120%;
+  left:-120%;
+  background:linear-gradient(
+    60deg,
+    transparent,
+    rgba(255,255,255,.25),
+    transparent
+  );
+  transform:rotate(25deg);
+  transition:.6s;
+}
+
+/* ================= HOVER ================= */
+.card:hover{
+  transform:translateY(-10px) scale(1.08);
+  box-shadow:
+    0 0 45px rgba(0,255,255,.7),
+    inset 0 0 18px rgba(255,255,255,.15);
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+.card:hover::after{
+  top:120%;
+  left:120%;
+}
+
+/* ================= ICON ================= */
+.card img{
+  /* CHANGE: Icon thoda bada kiya */
+  width:55px;
+  height:55px;
+  filter:drop-shadow(0 0 8px rgba(0,255,255,.6));
+  transition:.35s;
+}
+
+.card:hover img{
+  transform:rotate(-6deg) scale(1.1);
+}
+
+/* ================= TEXT ================= */
+.card span{
+  /* CHANGE: Font size 22px kiya */
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:.4px;
+  text-shadow:0 0 10px rgba(0,255,255,.4);
+}
+
+/* ================= CLICK RIPPLE ================= */
+.card:active{
+  transform:scale(.96);
+  box-shadow:0 0 25px rgba(0,255,255,.8);
+}
+
+.dashboard-header{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  margin:30px 0 20px;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img{
+  width: 150px;        /* size tum control karo */
+  height: auto;      /* ❗ auto = shape safe */
+  border-radius: 70%;/* agar perfect circle ho */
+  object-fit: contain;
+
+  background: transparent; /* ❗ square bg nahi */
+  box-shadow: 0 0 18px rgba(0,255,255,0.7);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* same logo animation */
+.dashboard-header .logo{
+  font-size:54px;
+  margin-bottom:10px;
+  animation:glowPulse 2.2s infinite ease-in-out;
+  filter:drop-shadow(0 0 10px cyan);
+}
+
+.dashboard-header h2{
+  font-size:30px;
+  margin:0;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.dashboard-header p{
+  margin-top:6px;
+  font-size:14px;
+  opacity:.8;
+}
+
+/* 🔥 same glow pulse */
+@keyframes glowPulse{
+  0%{
+    transform:scale(1);
+    filter:drop-shadow(0 0 10px cyan);
+  }
+  50%{
+    transform:scale(1.15);
+    filter:
+      drop-shadow(0 0 18px cyan)
+      drop-shadow(0 0 35px #00ffff);
+  }
+  100%{
+    transform:scale(1);
+    filter:drop-shadow(0 0 10px cyan);
+  }
+}
+
+.logout-btn{
+  position:absolute;
+  top:25px;
+  right:30px;
+
+  padding:12px 26px;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.5px;
+
+  color:#ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,80,80,.35),
+      rgba(255,0,0,.15),
+      rgba(255,80,80,.35)
+    );
+
+  border:1px solid rgba(255,120,120,.55);
+  border-radius:30px;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 18px rgba(255,80,80,.6),
+    inset 0 0 12px rgba(255,255,255,.25);
+
+  transition:all .25s ease;
+}
+
+/* ✨ hover crystal effect */
+.logout-btn:hover{
+  transform:scale(1.08);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,0,0,.55),
+      rgba(255,120,120,.35)
+    );
+
+  box-shadow:
+    0 0 35px rgba(255,0,0,1),
+    inset 0 0 18px rgba(255,255,255,.35);
+}
+
+/* 🔴 click feel */
+.logout-btn:active{
+  transform:scale(.96);
+}
+
+
+
+/* 🔴 Crystal Top Error Bar */
+.link-error-top{
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+
+  padding: 14px 28px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,0,80,0.25),
+    rgba(255,80,80,0.15)
+  );
+
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,120,120,0.6);
+
+  color: #ffe3e3;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    0 0 30px rgba(255,80,80,0.8),
+    inset 0 0 14px rgba(255,255,255,0.15);
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99999;
+
+  transition: all 0.45s ease;
+}
+
+/* show state */
+.link-error-top.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* subtle shake */
+@keyframes topShake{
+  0%{transform:translateX(-50%)}
+  25%{transform:translateX(calc(-50% - 6px))}
+  50%{transform:translateX(calc(-50% + 6px))}
+  75%{transform:translateX(calc(-50% - 4px))}
+  100%{transform:translateX(-50%)}
+}
+

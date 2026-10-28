@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{margin:0;}
+.header{
+  height:55px;
+  background:#0d6efd;
+  color:white;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  font-weight:bold;
+}
+.header button{
+  margin-right:15px;
+}
+iframe{
+  width:100%;
+  height:calc(100vh - 55px);
+  border:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <button onclick="goHome()">⬅ BACK</button>
+  🏛️ MAHA SEVA KENDRA – DIGITAL SERVICES
+</div>
+
+<iframe src="{{URL}}"></iframe>
+
+<script>
+function goHome(){
+  if(window.pywebview){
+    window.pywebview.api.go_home();
+  }
+}
+</script>
+
+</body>
+</html>
